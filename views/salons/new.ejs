@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Salon</title>
+</head>
+<body>
+    <form action="/salons" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="salon[name]">
+        </div>
+        <div>
+            <label for="location">location</label>
+            <input type="text" id="location" name="salon[location]">
+        </div>
+        <button>Add Salon</button>
+    </form>
+    <footer>
+        <a href="/salons"> All salons</a>
+    </footer>
+</body>
+</html>

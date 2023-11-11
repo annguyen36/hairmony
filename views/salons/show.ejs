@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Slow</title>
+</head>
+<body>
+    <h1> <%= salon.name %></h1>
+    <h2> <%= salon.location %></h2>
+    <form action="/salons/<%= salon._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+    <footer>
+        <a href="/salons/<%=salon._id%>/edit"> Edit</a>
+        <p></p>
+        <a href="/salons"> All salons</a>
+    </footer>
+</body>
+</html>
