@@ -23,7 +23,8 @@ const seedDb = async () => {
         const salon = new Salon({
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             description: `${sample(salon_descriptions)} `,
-            name: `${sample(salon_names)} `
+            name: `${sample(salon_names)} `,
+            image: 'https://source.unsplash.com/collection/8709034'
         })
         await salon.save();
     }

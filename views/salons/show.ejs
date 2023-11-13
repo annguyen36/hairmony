@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salon Slow</title>
-</head>
-<body>
+<% layout('layouts/Boilerplate')%>
     <h1> <%= salon.name %></h1>
+    <img src="<%= salon.image%>" alt="">
+    <p><%= salon.description%></p>
     <h2> <%= salon.location %></h2>
     <form action="/salons/<%= salon._id%>?_method=DELETE" method="POST">
         <button>Delete</button>
@@ -16,5 +11,3 @@
         <p></p>
         <a href="/salons"> All salons</a>
     </footer>
-</body>
-</html>
