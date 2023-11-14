@@ -1,13 +1,28 @@
 <% layout('layouts/Boilerplate')%>
-    <h1> <%= salon.name %></h1>
-    <img src="<%= salon.image%>" alt="">
-    <p><%= salon.description%></p>
-    <h2> <%= salon.location %></h2>
-    <form action="/salons/<%= salon._id%>?_method=DELETE" method="POST">
-        <button>Delete</button>
-    </form>
-    <footer>
-        <a href="/salons/<%=salon._id%>/edit"> Edit</a>
-        <p></p>
-        <a href="/salons"> All salons</a>
-    </footer>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= salon.image%>"  alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= salon.name %></h5>
+              <p class="card-text"><%= salon.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-muted"><%= salon.location %></li>
+              <li class="list-group-item"><%= salon.description%></li>
+            </ul>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/salons/<%=salon._id%>/edit"> Edit</a>
+                <form class="d-inline" action="/salons/<%= salon._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-warning"">Delete</button>
+                </form>
+            </div>
+           
+                <a href="/salons"> All salons</a>
+           
+        
+        </div>
+    </div>
+</div>
+   
+  

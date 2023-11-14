@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Salon</title>
-</head>
-<body>
-    <h1>Edit Salon</h1>
+
+
+<% layout('layouts/Boilerplate')%>
+<div class="row">
+    <h1 class="text-center">New Salon</h1>
+<div class="col-6 offset-3">
     <form action="/salons/<%=salon._id%>?_method=PUT" method="POST">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="salon[name]" value="<%= salon.name %>">
+        <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" id="name" name="salon[name]" value="<%= salon.name %>">
         </div>
-        <div>
-            <label for="location">location</label>
-            <input type="text" id="location" name="salon[location]" value="<%= salon.location %>">
+        <div class="mb-3">
+            <label class="form-label"  for="location">location</label>
+            <input class="form-control"  type="text" id="location" name="salon[location]" value="<%= salon.location %>">
         </div>
-        <button>Edit Salon</button>
+        <div class="mb-3">
+            <label class="form-label"  for="image">Image URL</label>
+            <input class="form-control"  type="text" id="image" name="salon[image]" value="<%= salon.image %>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"  for="description">Description</label>
+            <textarea class="form-control"  type="text" id="description" name="salon[description]" value="<%= salon.description %>"></textarea>
+           
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-info">Edit Salon</button>
+        </div>
+        
     </form>
-    <footer>
-        <a href="/salons/<%= salon._id %>"> Back to salon</a>
-    </footer>
-</body>
-</html>
+
+    <a href="/salons/<%= salon._id %>"> Back to salon</a>
+
+</div>
+</div>
+    
