@@ -2,14 +2,14 @@
 <div class="row">
     <h1 class="text-center">New Salon</h1>
 <div class="col-6 offset-3">
-    <form action="/salons" method="post">
+    <form action="/salons" method="post" novalidate class="validated-form">
         <div class="mb-3">
             <label class="form-label" for="name">Name</label>
-            <input class="form-control" type="text" id="name" name="salon[name]">
+            <input class="form-control" type="text" id="name" name="salon[name]" required>
         </div>
         <div class="mb-3">
             <label class="form-label"  for="location">location</label>
-            <input class="form-control"  type="text" id="location" name="salon[location]">
+            <input class="form-control"  type="text" id="location" name="salon[location]" required>
         </div>
         <div class="mb-3">
             <label class="form-label"  for="image">Image URL</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label"  for="description">Description</label>
-            <textarea class="form-control"  type="text" id="description" name="salon[description]"></textarea>
+            <textarea class="form-control"  type="text" id="description" name="salon[description]" required></textarea>
            
         </div>
         <div class="mb-3">
@@ -31,3 +31,24 @@
 </div>
 </div>
     
+<script>
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.validated-form')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>
