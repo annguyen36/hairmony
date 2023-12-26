@@ -36,12 +36,17 @@ router.post('/', validateSalon, catchAsync(async (req, res, next) => {
         
         const salon = new Salon(req.body.salon);
         await salon.save();
+        req.flash('success', 'Successfully made a new salon!') 
         res.redirect(`/salons/${salon._id}`)
     
 }))
 
 router.get('/:id', catchAsync(async(req, res) => {
     const salon  = await  Salon.findById(req.params.id).populate('reviews')
+    if(!salon) {
+        req.flash('error', 'Cannot find that salon!') 
+        return res.redirect('/salons') 
+    }
     res.render('salons/show', {salon})
 }))
 
@@ -53,12 +58,14 @@ router.get('/:id/edit', catchAsync(async (req,res) => {
 router.put('/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const salon = await Salon.findByIdAndUpdate(id,{...req.body.salon});
+    req.flash('success', 'Successfully uodated salon!') 
     res.redirect(`/salons/${salon._id}`)
 }))
 
 router.delete('/:id', catchAsync(async (req, res) => {
     const {id} = req.params;
     await Salon.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted a salon!') 
     res.redirect('/salons')
 }))
 
